@@ -3,7 +3,6 @@
 #?=================================================
 import os 
 from libs.exiftool import ExifToolHelper
-from datetime import datetime
 import errno
 from shutil import move,copy
 from libs.colorama import init
