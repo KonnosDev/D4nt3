@@ -10,6 +10,7 @@ from libs.colorama import Fore,Back,Style
 from tkinter.filedialog import askdirectory
 from time import sleep
 from random import shuffle
+from subprocess import run as Run
 #?=================================================
 
 
@@ -412,8 +413,8 @@ else:
 print("\nWhat would you like to do today?")  
 
 while True:
-    print("\n-------|\n     1.| Rename photos\n     2.| Sort photos in folders\n     3.| Select another folder\n  kill.| Kill the program\n-------|\n")
-    uiMainList=["1","2","3","kill"]
+    print("\n-------|\n     1.| Rename photos\n     2.| Sort photos in folders\n     3.| Select another folder\n     4.| Revert unwanted M4ss\n     5.| Delete empty folders\n  kill.| Kill the program\n-------|\n")
+    uiMainList=["1","2","3","4","5","kill"]
     uiMain=userInput(uiMainList)
     source = source.rstrip(os.path.sep)
     filelist=os.listdir(source)
@@ -659,6 +660,12 @@ while True:
                     massflag=True
                 case "n":
                     massflag=False
+        #? M4ss revert
+        case "4":
+            Run(["python", "tools/m4ss_revert.py"])  
+        #? Empty dir deleter
+        case "5":
+            Run(["python", "tools/empty_dir_cleaner.py"])  
         case "kill":
             exit()
 
